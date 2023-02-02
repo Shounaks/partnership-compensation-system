@@ -8,7 +8,7 @@ import { LoginService } from '../loginService/login.service';
   providedIn: 'root'
 })
 export class AdminService {
-  private AWS_URL = "localhost";//"3.110.23.139";
+  private AWS_URL = "3.110.23.139";//"3.110.23.139";
 
   constructor(private loginService: LoginService, private httpClient: HttpClient) { }
 

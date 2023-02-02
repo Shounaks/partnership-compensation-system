@@ -11,7 +11,7 @@ export class LoginService {
   public user: any;
 
 
-  private AWS_URL = "localhost";//"3.110.23.139";
+  private AWS_URL = "3.110.23.139";//"3.110.23.139";
   private authenticationURL = "http://" + this.AWS_URL + ":8081/api/v1/picosys/authentication/";
   private loginUrl = this.authenticationURL + "sign-in";
   private registerUrl = this.authenticationURL + "sign-up";
