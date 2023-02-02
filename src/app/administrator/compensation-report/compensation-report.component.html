@@ -1,0 +1,66 @@
+<div class="hero h-full min-w-full bg-[url('/assets/book_wall.jpg')]">
+    <div class="hero-content h-full min-w-full text-center">
+        <div class="w-full h-full shadow-lg border-base-100 p-4 border-2 rounded-box bg-base-200 opacity-95">
+            <h1 class="text-5xl font-bold">List Of Registered Users</h1>
+            <hr class="border-base-100 border-2">
+            <p class="py-6">Register to One of the leading Book Subscription Services on the internet. Get access to
+                over 50,000,000+ books once the migration is completed. <span class="link" (click)="generateReport()">Download Report</span></p>
+            <br>
+            <div class="flex flex-row justify-center gap-4 flex-wrap">
+                <div class="card w-96 bg-base-300 shadow-xl" *ngFor="let compensationPlan of compensationPlans">
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            <div class="w-full">
+                                <p class="float-left">{{compensationPlan.partnerName}}</p>
+                                <p class="float-right"><b>#{{compensationPlan.planId}}</b></p>
+                            </div>
+                        </h2>
+                        <hr>
+                        <div class="flex flex-col">
+                            <div class="w-full">
+                                <p class="float-left">Official Plan Name: </p>
+                                <p class="float-right"><b>{{compensationPlan.compensationPlanName}}</b></p>
+                            </div>
+                            <div class="w-full">
+                                <p class="float-left">Calculation Methodology: </p>
+                                <p class="float-right"><b>{{compensationPlan.calculationMethodology}}</b></p>
+                            </div>
+                            <div class="w-full">
+                                <fieldset class="border border-solid border-gray-300 p-3 float-left w-full rounded-lg">
+                                    <legend class="px-2">Quantity Information</legend>
+                                    <div class="w-full">
+                                        <p class="float-left">Minimum Quantity: </p>
+                                        <p class="float-right">{{compensationPlan.minQuantity}} unit/s</p>
+                                    </div>
+                                    <div class="w-full">
+                                        <p class="float-left">Maximum Quantity: </p>
+                                        <p class="float-right">{{compensationPlan.maxQuantity}} unit/s</p>
+                                    </div>
+                                    <div class="w-full">
+                                        <p class="float-left">Percent Compensation: </p>
+                                        <p class="float-right">{{compensationPlan.percentageCompensation}} unit/s</p>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="card-actions justify-end">
+                            <!-- <div class="badge badge-outline">{{compensationPlan.role}}</div> -->
+                            <p class="float-left">From: <b>{{compensationPlan.validFrom | date}}</b> </p>
+                            <p class="float-left">To: <b>{{compensationPlan.validTo | date}}</b> </p>
+                        </div>
+                        <button class="btn btn-square btn-outline btn-warning btn-block" (click)="deleteCompensationPlan(compensationPlan.planId)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                          </button>
+                    </div>
+                </div>
+
+            </div>
+            <hr class="my-4">
+            <div class="btn-group">
+                <button class="btn bg-base-100" ngClass="{'btn-active':i == page}"
+                    *ngFor="let pagez of pages;let i=index" (click)="setPages(i,$event)">{{i}}</button>
+            </div>
+        </div>
+    </div>
+</div>

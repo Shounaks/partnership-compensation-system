@@ -1,0 +1,84 @@
+<div class="hero min-h-screen bg-[url('/assets/book_wall.jpg')]">
+    <div class="hero-content text-center">
+        <div class="max-w shadow-lg border-base-100 p-4 border-2 rounded-box bg-base-200 opacity-95">
+            <h1 class="text-5xl font-bold">Create Compensation Plan</h1>
+            <hr class="border-base-100 border-2">
+            <p class="py-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, quas.</p>
+            <br>
+            <div class="" id="registrationFormContainer">
+                <form [formGroup]="compensationPlanForm" (ngSubmit)="createCompensationPlan()">
+                    <div class="form-control">
+                        <label class="label" for="compensationPlanName"><span class="label-text">Compensation Plan Name</span></label>
+                        <input id="compensationPlanName" name="compensationPlanName" type="text" placeholder="Eg. 'PepsiCo Advertisement Plan'" class="input input-bordered rounded-none rounded-t" formControlName="compensationPlanName" />
+                        <span class="bg-base-300 text-red-400 w-full label-text-alt rounded-b" *ngIf="compensationPlanForm.controls['compensationPlanName'].invalid && compensationPlanForm.controls['compensationPlanName'].dirty">
+                            😎 Compensation Plan Name should contain only alphabets
+                        </span>
+                    </div>
+                    <div class="form-control">
+                        <label class="label" for="partnerName"><span class="label-text">Partner Name</span></label>
+                        <input id="partnerName" name="partnerName" type="text" placeholder="Eg. 'PepsiCo'" class="input input-bordered rounded-none rounded-t" formControlName="partnerName" />
+                        <span class="bg-base-300 text-red-400 w-full label-text-alt rounded-b" *ngIf="compensationPlanForm.controls['partnerName'].invalid && compensationPlanForm.controls['partnerName'].dirty">
+                            🧑‍🤝‍🧑 Partner Name should contain only alphabets
+                        </span>
+                    </div>
+                    <div class="form-control">
+                        <label class="label" for="calculationMethodology"><span class="label-text">Calculation Methodology</span></label>
+                        <select id="calculationMethodology" name="calculationMethodology" class="input input-bordered rounded-none rounded-t" formControlName="calculationMethodology">
+                            <option value="">--Select--</option>
+                            <option value="VOLUME">Volume</option>
+                            <option value="REVENUE">Revenue</option>
+                        </select>
+                        <span class="bg-base-300 text-red-400 w-full label-text-alt rounded-b" *ngIf="compensationPlanForm.controls['calculationMethodology'].invalid && compensationPlanForm.controls['calculationMethodology'].dirty">
+                            Calculation Methodology Must Be Either Volume Or Revenue
+                        </span>
+                    </div>
+                    <div class="grid grid-cols-2 grid-flow-row gap-4" *ngIf="compensationPlanForm.controls['calculationMethodology'].value !== ''">
+                        <div class="form-control">
+                            <label class="label" for="minQuantity"><span class="label-text">Min Quantity</span></label>
+                            <input id="minQuantity" name="minQuantity" type="number" class="input input-bordered rounded-none rounded-t" formControlName="minQuantity" />
+                            <span class="bg-base-300 text-red-400 w-full label-text-alt rounded-b" *ngIf="compensationPlanForm.controls['minQuantity'].invalid && compensationPlanForm.controls['minQuantity'].dirty">
+                                😎 Minimum Quantity should be a number
+                            </span>
+                        </div>
+                        <div class="form-control">
+                            <label class="label" for="maxQuantity"><span class="label-text">Max Quantity</span></label>
+                            <input id="maxQuantity" name="maxQuantity" type="number" class="input input-bordered rounded-none rounded-t" formControlName="maxQuantity" />
+                            <span class="bg-base-300 text-red-400 w-full label-text-alt rounded-b" *ngIf="compensationPlanForm.controls['maxQuantity'].invalid && compensationPlanForm.controls['maxQuantity'].dirty">
+                                😎 Max Quantity should be a number
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-control" *ngIf="compensationPlanForm.controls['calculationMethodology'].value !== ''">
+                        <label class="label" for="percentageCompensation"><span class="label-text">Percentage Compensation (0 to 100)</span></label>
+                        <input id="percentageCompensation" name="percentageCompensation" type="number" class="input input-bordered rounded-none rounded-t" formControlName="percentageCompensation" />
+                        <span class="bg-base-300 text-red-400 w-full label-text-alt rounded-b" *ngIf="compensationPlanForm.controls['percentageCompensation'].invalid && compensationPlanForm.controls['percentageCompensation'].dirty">
+                            😎 Percentage Compensation should be a number between 0 and 100
+                        </span>
+                    </div>
+                    <div class="grid grid-cols-2 grid-flow-row gap-4">
+                        <div class="form-control">
+                            <label class="label" for="validFrom"><span class="label-text">Valid From:</span></label>
+                            <input id="validFrom" name="validFrom" type="date" class="input input-bordered rounded-none rounded-t" formControlName="validFrom" [min]="currentDate"/>
+                            <span class="bg-base-300 text-red-400 w-full label-text-alt rounded-b" *ngIf="compensationPlanForm.controls['validFrom'].invalid && compensationPlanForm.controls['validFrom'].dirty">
+                                📅 Valid From must come after Current Date
+                            </span>
+                        </div>
+                        <div class="form-control">
+                            <label class="label" for="validTo"><span class="label-text">Valid To:</span></label>
+                            <input id="validTo" name="validTo" type="date" class="input input-bordered rounded-none rounded-t" formControlName="validTo" [min]="currentDate"/>
+                            <span class="bg-base-300 text-red-400 w-full label-text-alt rounded-b" *ngIf="compensationPlanForm.controls['validTo'].invalid && compensationPlanForm.controls['validTo'].dirty">
+                                📅 Valid To must come after ValidFrom Date
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-control mt-6">
+                        <button class="btn btn-active" [disabled]="compensationPlanForm.invalid">Create Plan</button>
+                    </div>
+                    <div>
+                        <p class="text-red-400" *ngIf="errorMessage">{{errorMessage}}</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

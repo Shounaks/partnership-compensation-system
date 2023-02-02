@@ -1,0 +1,49 @@
+<div class="hero h-full w-full bg-[url('/assets/book_wall.jpg')]">
+    <div class="hero-content h-full min-w-full text-center">
+        <div class="min-w-full h-full shadow-lg border-base-100 p-4 border-2 rounded-box bg-base-200 opacity-95">
+            <h1 class="text-5xl font-bold">List Of Registered Users</h1>
+            <hr class="border-base-100 border-2">
+            <p class="py-6">Register to One of the leading Book Subscription Services on the internet. Get access to
+                over 50,000,000+ books once the migration is completed.</p>
+            <br>
+            <div class="flex flex-row justify-center gap-4 flex-wrap">
+                <div class="card w-96 bg-base-300 shadow-xl" *ngFor="let user of userList">
+                    <div class="card-body">
+
+                        <h2 class="card-title">
+                            <div class="w-full">
+                                <p class="float-left">{{user.firstName}} {{user.lastName}}</p>
+                                <p class="float-right"><b>#{{user.employeeId}}</b></p>
+                            </div>
+                        </h2>
+                        <hr>
+                        <div class="flex flex-col">
+                            <div class="w-full">
+                                <p class="float-left">Job Title: </p>
+                                <p class="float-right"><b>{{user.jobTitle}}</b></p>
+                            </div>
+                            <div class="w-full">
+                                <p class="float-left">Department: </p>
+                                <p class="float-right"><b>{{user.department}}</b></p>
+                            </div>
+                            <div class="w-full">
+                                <p class="float-left">Location: </p>
+                                <p class="float-right"><b>{{user.location}}</b></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="card-actions justify-end">
+                            <div class="badge badge-outline">{{user.role}}</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <hr class="my-4">
+            <div class="btn-group">
+                <button class="btn bg-base-100" ngClass="{'btn-active':i == page}"
+                    *ngFor="let pagez of pages;let i=index" (click)="setPages(i,$event)">{{i}}</button>
+            </div>
+        </div>
+    </div>
+</div>
