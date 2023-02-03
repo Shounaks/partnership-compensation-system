@@ -1,59 +1,69 @@
 <div class="hero h-screen w-screen bg-[url('/assets/book_wall.jpg')]">
-    <div *ngIf="this.loginService?.user" class="hero-content flex-col lg:flex-row border shadow-lg rounded-lg border-base-200 bg-base-200 opacity-95">
-        <div class="h-full">
-          <img src="https://placeimg.com/260/400/arch" class="max-w-xs max-h-full rounded-lg shadow-2xl" />
-        </div>
-        <div class="h-full">
-          <h1 class="text-5xl font-bold pb-2">{{this.loginService.user?.firstName}} {{this.loginService.user?.lastName}}</h1>
-          <div class="py-4 w-full">
-            <p class="float-left">Email ID: </p>
-            <p class="float-right"><b>{{this.loginService.user?.emailId}}</b></p>
-          </div>
-          <div class="py-4 w-full">
-            <p class="float-left">Location: </p>
-            <p class="float-right badge badge-outline"><b>{{this.loginService.user?.location}}</b></p>
-          </div>
-          <div class="py-4 w-full">
-            <p class="float-left">Job Title: </p>
-            <p class="float-right"><b>{{this.loginService.user?.jobTitle}}</b></p>
-          </div>
-          <div class="py-4 w-full">
-            <p class="float-left">Department: </p>
-            <p class="float-right"><b>{{this.loginService.user?.department}}</b></p>
-          </div>
-          <div class="py-4 w-full">
-            <p class="float-left">Role: </p>
-            <p class="float-right"><b>{{this.loginService.user?.role}}</b></p>
-          </div>
-          <fieldset class="border-2 border-white w-full" *ngIf="this.compensationPlan">
-            <legend class="px-2">Compensation Plan</legend>
-            <div class="px-4 w-full">
-              <p class="float-left">Partner Name: </p>
-              <p class="float-right"><b>{{this.compensationPlan.partnerName}}</b></p>
-            </div>
-            <br>
-            <div class="px-4 w-full">
-              <p class="float-left">Compensation Plan Name: </p>
-              <p class="float-right"><b>{{this.compensationPlan.compensationPlanName}}</b></p>
-            </div>
-            <br>
-            <div class="px-4 w-full">
-              <p class="float-left">Calculation Methodology: </p>
-              <p class="float-right"><b>{{this.compensationPlan.calculationMethodology}}</b></p>
-            </div>
-            <br>
-            <hr>
-            <div class="px-4 w-full flex">
-              <div class="px-4 w-full">
-                <p class="">Valid From: </p>
-                <p class=""><b>{{this.compensationPlan.validFrom | date}}</b></p>
-              </div>
-              <div class="px-4 w-full">
-                <p class="">Valid To: </p>
-                <p class=""><b>{{this.compensationPlan.validTo | date}}</b></p>
-              </div>
-            </div>
-          </fieldset>
-        </div>
+  <div *ngIf="this.loginService?.user"
+    class="hero-content flex-col lg:flex-row border shadow-lg rounded-lg border-base-200 bg-base-200 opacity-95">
+    <div class="h-full">
+      <img src="https://placeimg.com/260/400/arch" class="max-w-xs max-h-full rounded-lg shadow-2xl" />
+    </div>
+    <div class="h-full">
+      <h1 class="text-5xl font-bold pb-2">{{this.loginService.user?.firstName}} {{this.loginService.user?.lastName}}
+      </h1>
+      <div class="py-4 w-full">
+        <p class="float-left">Email ID: </p>
+        <p class="float-right"><b>{{this.loginService.user?.emailId}}</b></p>
       </div>
+      <div class="py-4 w-full">
+        <p class="float-left">Location: </p>
+        <p class="float-right badge badge-outline"><b>{{this.loginService.user?.location}}</b></p>
+      </div>
+      <div class="py-4 w-full">
+        <p class="float-left">Job Title: </p>
+        <p class="float-right"><b>{{this.loginService.user?.jobTitle}}</b></p>
+      </div>
+      <div class="py-4 w-full">
+        <p class="float-left">Department: </p>
+        <p class="float-right"><b>{{this.loginService.user?.department}}</b></p>
+      </div>
+      <div class="py-4 w-full">
+        <p class="float-left">Role: </p>
+        <p class="float-right"><b>{{this.loginService.user?.role}}</b></p>
+      </div>
+      <fieldset class="border-2 border-white w-full" *ngIf="this.compensationPlan">
+        <legend class="px-2">Compensation Plan</legend>
+        <div class="px-4 w-full">
+          <p class="float-left">Partner Name: </p>
+          <p class="float-right"><b>{{this.compensationPlan.partnerName}}</b></p>
+        </div>
+        <br>
+        <div class="px-4 w-full">
+          <p class="float-left">Compensation Plan Name: </p>
+          <p class="float-right"><b>{{this.compensationPlan.compensationPlanName}}</b></p>
+        </div>
+        <br>
+        <div class="px-4 w-full">
+          <p class="float-left">Calculation Methodology: </p>
+          <p class="float-right"><b>{{this.compensationPlan.calculationMethodology}}</b></p>
+        </div>
+        <br>
+        <hr>
+        <div class="px-4 w-full flex">
+          <div class="px-4 w-full">
+            <p class="">Valid From: </p>
+            <p class=""><b>{{this.compensationPlan.validFrom | date}}</b></p>
+          </div>
+          <div class="px-4 w-full">
+            <p class="">Valid To: </p>
+            <p class=""><b>{{this.compensationPlan.validTo | date}}</b></p>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+  <div *ngIf="!this.loginService?.user" class="hero-content text-center bg-base-200 rounded-3xl opacity-95">
+    <div class="max-w-full">
+      <h1 class="text-5xl font-bold w-full">Partnership Compensation System</h1>
+      <p class="pt-6">Partnership Compensation System has been voted the best by multiple Industry-Leading Corporations
+        including AYX, BSR, NSD... and the list goes on.</p>
+      <p class="p-6">Login to Continue...</p>
+    </div>
+  </div>
 </div>
