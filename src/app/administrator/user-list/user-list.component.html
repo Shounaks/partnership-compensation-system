@@ -3,8 +3,7 @@
         <div class="min-w-full h-full shadow-lg border-base-100 p-4 border-2 rounded-box bg-base-200 opacity-95">
             <h1 class="text-5xl font-bold">List Of Registered Users</h1>
             <hr class="border-base-100 border-2">
-            <p class="py-6">Register to One of the leading Book Subscription Services on the internet. Get access to
-                over 50,000,000+ books once the migration is completed.</p>
+            <p class="py-6">People Registered to One of the leading Partnership Management Services on the internet.</p>
             <br>
             <div class="flex flex-row justify-center gap-4 flex-wrap">
                 <div class="card w-96 bg-base-300 shadow-xl" *ngFor="let user of userList">
@@ -33,7 +32,7 @@
                         </div>
                         <br>
                         <div class="card-actions justify-end">
-                            <div class="badge badge-outline">{{user.role}}</div>
+                            <div class="badge badge-outline">{{(user.role).replaceAll("_"," ")}}</div>
                         </div>
                     </div>
                 </div>
